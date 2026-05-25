@@ -369,6 +369,20 @@ h2 {
 .problem {
   background: var(--bg-2);
 }
+.problem .section-head {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 16px;
+}
+.problem .section-head .meta {
+  align-items: center;
+  padding-top: 0;
+}
+.problem .section-head h2 {
+  max-width: none;
+  text-wrap: balance;
+}
 .problem-body {
   font-size: clamp(15px, 1.2vw, 17px);
   color: var(--ink-2);
@@ -376,11 +390,14 @@ h2 {
   max-width: 60ch;
   margin-bottom: 56px;
 }
+.problem .problem-body {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 .problem-body .em-line {
   color: var(--ink);
   font-weight: 700;
-  display: block;
-  margin: 4px 0;
 }
 .problem-grid {
   display: grid;
@@ -424,6 +441,16 @@ h2 {
 .concept .eyebrow { color: oklch(0.7 0.14 35); }
 .concept .eyebrow::before { background: oklch(0.7 0.14 35); }
 .concept .section-num { color: oklch(0.55 0.02 250); }
+.concept .section-head {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 16px;
+}
+.concept .section-head .meta {
+  align-items: center;
+  padding-top: 0;
+}
 .concept h2 {
   font-size: clamp(32px, 4.8vw, 60px);
   color: var(--ink);
@@ -436,6 +463,11 @@ h2 {
   line-height: 1.95;
   max-width: 56ch;
   margin-bottom: 64px;
+}
+.concept .concept-body {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .concept-body strong { color: var(--ink); font-weight: 500; }
 
