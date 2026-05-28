@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding — CX改善をスピーディーに|Onboarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'Noto Sans JP', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .btn-primary {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 40px -10px rgba(207, 1, 120, 0.5);
+      }
+      .btn-primary:active {
+        transform: translateY(0);
+      }
+      .btn-primary .arrow-icon {
+        transition: transform 0.3s ease;
+      }
+      .btn-primary:hover .arrow-icon {
+        transform: translateX(4px);
+      }
+      .btn-secondary {
+        transition: all 0.3s ease;
+      }
+      .btn-secondary:hover {
+        border-color: #cf0178;
+        color: #cf0178;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px -10px rgba(207, 1, 120, 0.3);
+      }
+      .btn-secondary:active {
+        transform: translateY(0);
+      }
+      .btn-nav {
+        transition: all 0.3s ease;
+      }
+      .btn-nav:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px -5px rgba(207, 1, 120, 0.4);
+      }
+      .btn-submit {
+        transition: all 0.3s ease;
+      }
+      .btn-submit:hover {
+        background-color: #b8016a;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px -8px rgba(161, 1, 93, 0.5);
+      }
+      .btn-submit:active {
+        transform: translateY(0);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+      }
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+        border-color: rgba(207, 1, 120, 0.2);
+      }
+      #use-cases-track {
+        will-change: transform;
+      }
+      .use-cases-arrow {
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      }
+      .use-cases-arrow:hover {
+        background-color: #cf0178;
+        color: white;
+        border-color: #cf0178;
+      }
+      .use-cases-arrow:focus-visible {
+        outline: 2px solid #cf0178;
+        outline-offset: 2px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .btn-primary,
+        .btn-secondary,
+        .btn-nav,
+        .btn-submit,
+        .card-hover,
+        .feature-card,
+        #use-cases-track {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="Page_OnboardingLP2 min-h-screen bg-white font-sans text-slate-900 antialiased">
+    <nav class="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl flex-col px-4 py-3 sm:px-6 lg:px-8 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-4">
+        <div class="flex w-full items-center justify-between gap-4 md:w-auto md:justify-start">
+          <a href="#top" class="inline-flex min-w-0 flex-1 items-center text-left md:flex-none" aria-label="Onboarding">
+            <img src="onboarding-logo.jpg" alt="Onboarding" class="h-11 w-auto max-w-[min(100%,360px)] object-contain object-left sm:h-12 md:h-14" data-studio-component="Img_Logo_Main" />
+          </a>
+          <button
+            type="button"
+            id="nav-toggle"
+            class="inline-flex shrink-0 items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#cf0178] md:hidden"
+            aria-controls="nav-menu"
+            aria-expanded="false"
+            aria-label="メニューを開く"
+          >
+            <svg id="nav-icon-menu" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="nav-icon-close" class="hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div
+          id="nav-menu"
+          class="hidden w-full flex-col gap-1 border-t border-slate-100 pt-4 md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-t-0 md:pt-0"
+        >
+          <a href="#problems" class="rounded-lg px-2 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-[#cf0178] md:py-2 md:hover:bg-transparent">課題</a>
+          <a href="#solution" class="rounded-lg px-2 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-[#cf0178] md:py-2 md:hover:bg-transparent">できること</a>
+          <a href="#details" class="rounded-lg px-2 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-[#cf0178] md:py-2 md:hover:bg-transparent">具体内容</a>
+          <a href="#use-cases" class="rounded-lg px-2 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-[#cf0178] md:py-2 md:hover:bg-transparent">活用事例</a>
+          <a href="#features" class="rounded-lg px-2 py-3 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-[#cf0178] md:py-2 md:hover:bg-transparent">機能</a>
+          <a href="#cta" class="btn-nav mt-2 inline-flex justify-center rounded-full bg-[#cf0178] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#cf0178]/25 md:mt-0 md:py-2">資料請求</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="top" class="Sec_Hero relative overflow-hidden pb-10 pt-8 lg:pb-14 lg:pt-12" data-studio-component="Sec_Hero">
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(207,1,120,0.08),transparent_50%)]"></div>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="Wrap_HeroContent grid items-center gap-12 lg:grid-cols-2">
+          <div class="Wrap_HeroCopy">
+            <p class="mb-4 inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">ノーコード / 生成AI×CX</p>
+            <h1 class="text-4xl font-black tracking-[0.01em] text-slate-900 sm:text-5xl lg:text-[3.25rem]">
+              <span class="mb-[0.25em] block text-[0.8em] leading-[1.0]">ひらめきを形に。</span>
+              <span class="mb-[0.02em] block leading-[1.15]">既存Webサービスを</span>
+              <span class="block leading-[1.05] text-[#cf0178]">生成AIで進化</span>
+            </h1>
+            <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-600">
+              Onboardingは、Webサービスの体験改善をすばやく搭載できる"生成AI×CX改善ツール"です。開発リソースや既存システムの制約を超えビジネス側が主体となりCX改善を進められます。
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <a href="#cta" class="Btn_Primary_Contact btn-primary inline-flex items-center justify-center rounded-2xl bg-[#cf0178] px-8 py-4 text-lg font-bold text-white shadow-xl shadow-[#cf0178]/30" data-studio-component="Btn_Primary_Contact">
+                資料を無料で受け取る
+                <svg class="ml-2 h-5 w-5 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a href="#solution" class="Btn_Secondary_Details btn-secondary inline-flex items-center justify-center rounded-2xl border-2 border-slate-200 px-8 py-4 text-lg font-bold text-slate-700" data-studio-component="Btn_Secondary_Details">できることを見る</a>
+            </div>
+            <div class="mt-10 flex flex-wrap gap-3 text-sm">
+              <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 font-semibold text-slate-600">タグ1行で導入</span>
+              <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 font-semibold text-slate-600">即日リリース可能</span>
+              <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 font-semibold text-slate-600">システム改修不要</span>
+            </div>
+          </div>
+          <div class="Img_Hero_MainVisual relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-br from-slate-50 to-white shadow-xl" data-studio-component="Img_Hero_MainVisual">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(207,1,120,0.12),transparent_55%)]"></div>
+            <div class="absolute left-6 right-6 top-6 rounded-2xl border border-slate-100 bg-white/90 p-4 shadow-sm backdrop-blur">
+              <div class="mb-3 flex gap-2">
+                <span class="h-2 w-2 rounded-full bg-slate-300"></span>
+                <span class="h-2 w-2 rounded-full bg-slate-200"></span>
+                <span class="h-2 w-2 rounded-full bg-slate-200"></span>
+              </div>
+              <div class="space-y-2">
+                <div class="h-2 max-w-[200px] rounded bg-slate-200" style="width: 75%"></div>
+                <div class="h-2 max-w-[140px] rounded bg-slate-100" style="width: 50%"></div>
+              </div>
+            </div>
+            <div class="absolute bottom-20 left-6 max-w-[200px] rounded-2xl rounded-bl-sm bg-slate-100 p-3">
+              <p class="text-xs text-slate-700">乾燥が気になるのですが...</p>
+            </div>
+            <div class="absolute bottom-6 left-6 right-6 rounded-2xl border border-[#cf0178]/20 bg-[#cf0178]/5 p-4">
+              <p class="text-xs font-bold text-[#cf0178]">AI Agent</p>
+              <p class="mt-1 text-sm font-semibold text-slate-800">それなら高保湿ラインがおすすめです。特にこちらは...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients" class="Sec_CaseStudies border-t border-slate-100 bg-white py-8" data-studio-component="Sec_CaseStudies">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-sm font-bold text-slate-600 sm:text-base">コンタクトセンター・DX企画室・プロダクト開発・マーケティング部署などの大手企業中心の導入実績</p>
+        <div class="mt-7 space-y-5">
+          <div class="flex flex-wrap justify-center gap-5">
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/tepco-logo.jpg" alt="TEPCO" class="h-8 w-full object-contain" data-studio-component="Img_Logo_TEPCO" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/recruit-logo.png" alt="リクルート" class="h-10 w-full object-contain" data-studio-component="Img_Logo_Recruit" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/anax.png" alt="ANA X" class="h-9 w-full object-contain" data-studio-component="Img_Logo_ANAX" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/airtori-logo.png" alt="エアトリ" class="h-9 w-full object-contain" data-studio-component="Img_Logo_Airtori" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/zkai_logo_yoko.png" alt="Z会" class="h-8 w-full object-contain" data-studio-component="Img_Logo_Zkai" />
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-5">
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/Veltra_Logo.jpg" alt="VELTRA" class="h-8 w-full object-contain" data-studio-component="Img_Logo_Veltra" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/gobusiness_logo_RGB_basic.png" alt="GO BUSINESS" class="h-8 w-full object-contain" data-studio-component="Img_Logo_GoBusiness" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/hrmos_kintai_logo_RGB.svg" alt="HRMOS勤怠" class="h-8 w-full object-contain" data-studio-component="Img_Logo_HRMOS" />
+            </div>
+            <div class="flex h-14 w-40 items-center justify-center bg-white px-3">
+              <img src="事例ロゴ/キャリタス就活ロゴ.png" alt="キャリタス就活" class="h-8 w-full object-contain" data-studio-component="Img_Logo_Caritas" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problems" class="Sec_Problem border-y border-slate-100 bg-[#f1f3f7] py-20" data-studio-component="Sec_Problem">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-black text-slate-900 sm:text-4xl">「実装 / 開発の壁」で</br>やりたいことが止まっていませんか？？</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="card-hover rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#cf0178]/10">
+              <svg class="h-6 w-6 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">改善スピードが遅い</h3>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">開発の順番待ちで優先順位がいつまでもあがらない。半年以上待つことはザラにあり、思うように進まない。</p>
+          </div>
+          <div class="card-hover rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#cf0178]/10">
+              <svg class="h-6 w-6 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">社内調整でリソース消失</h3>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">新しいことをやるにも上長や周りの関係者の説得が常に必要で、社内調整業務に追われる。</p>
+          </div>
+          <div class="card-hover rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm">
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#cf0178]/10">
+              <svg class="h-6 w-6 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900">アイデアをすぐ試せない</h3>
+            <p class="mt-4 text-base leading-relaxed text-slate-600">生成AIを使ったPoCやテストなど、やってみたいことはあるが何をやるにもコストがかかるため試せない。</p>
+          </div>
+        </div>
+
+        <div class="my-10 flex justify-center">
+          <div class="h-0 w-0 border-l-[110px] border-r-[110px] border-t-[62px] border-l-transparent border-r-transparent border-t-slate-400/55 sm:border-l-[135px] sm:border-r-[135px] sm:border-t-[75px]"></div>
+        </div>
+
+        <div class="mb-10 text-center">
+          <h3 class="text-3xl font-black text-slate-800 sm:text-4xl">サービス改善が実現できないことによる損失</h3>
+          <p class="mx-auto mt-4 max-w-4xl text-[16px] leading-relaxed" style="color: #475569;">サービス改善の停滞は現状維持ではなく、さまざまなビジネスリスクが存在します</p>
+        </div>
+
+        <div class="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="text-center">
+              <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+                <span class="text-2xl">📉</span>
+              </div>
+              <p class="text-xl font-bold text-slate-900 sm:text-2xl">収益・売上機会の損失</p>
+              <p class="mt-3 text-left text-base leading-relaxed text-slate-600">新規顧客の成約率(CVR)低下、既存顧客の離脱を招きサービスのLTVに負の影響を与えます。</p>
+            </div>
+            <div class="text-center">
+              <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+                <span class="text-2xl">💸</span>
+              </div>
+              <p class="text-xl font-bold text-slate-900 sm:text-2xl">コスト増大</p>
+              <p class="mt-3 text-left text-base leading-relaxed text-slate-600">継続的な問い合わせの対応による業務効率の低下に加え、サポートのための人件費増加が必要になります。</p>
+            </div>
+            <div class="text-center">
+              <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+                <span class="text-2xl">💬</span>
+              </div>
+              <p class="text-xl font-bold text-slate-900 sm:text-2xl">ブランド毀損</p>
+              <p class="mt-3 text-left text-base leading-relaxed text-slate-600">ネガティブな口コミとして市場に広まるとブランド毀損に繋がり一度定着したイメージの払拭が困難になります。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solution" class="Sec_Benefits py-20" data-studio-component="Sec_Benefits">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">SOLUTION</p>
+          <h2 class="inline-flex items-center justify-center gap-2 text-[52px] font-black text-slate-900">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#cf0178]"></span>
+            <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
+            <span class="tracking-tight">Onboarding</span>
+            <span>とは</span>
+          </h2>
+          <p class="mt-7 text-xl font-semibold text-slate-600 sm:text-2xl">Webサイト上に新たな価値を"あと乗せ"</p>
+          <p class="mx-auto mt-4 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">既存のWebサービスにタグを設置するだけで、ユーザーの状況に合わせた先回りのサポートを自動化。</p>
+          <p class="mx-auto mt-2 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">意思決定から実際の操作までスムーズに導きWebサイトの顧客体験（CX）そのものを劇的に進化させ成果に直結させます。</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="card-hover rounded-3xl border border-slate-100 bg-gradient-to-br from-[#cf0178]/5 to-white p-8 shadow-sm">
+            <div class="mb-4 inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">01</div>
+            <h3 class="text-xl font-bold text-slate-900">ノーコードでサービス体験を<br />いつでも「アップデート」</h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">専用管理画面からさまざまな施策を自由に編集。システム改修不要で即日リリース。</p>
+          </div>
+          <div class="card-hover rounded-3xl border border-slate-100 bg-gradient-to-br from-sky-500/5 to-white p-8 shadow-sm">
+            <div class="mb-4 inline-flex rounded-full bg-sky-500/10 px-3 py-1 text-xs font-bold text-sky-600">02</div>
+            <h3 class="text-xl font-bold text-slate-900">サービスの課題を<br />生成AI機能搭載により解決</h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">複雑なAI開発や専門的な知識は一切不要です。お客様サイトに合わせたAI機能を今すぐに搭載できます。</p>
+          </div>
+          <div class="card-hover rounded-3xl border border-slate-100 bg-gradient-to-br from-violet-500/5 to-white p-8 shadow-sm">
+            <div class="mb-4 inline-flex rounded-full bg-violet-500/10 px-3 py-1 text-xs font-bold text-violet-600">03</div>
+            <h3 class="text-xl font-bold text-slate-900">ユーザーインサイトを</br>見える化</h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">Web上のユーザー行動・心理を可視化。解析知識がなくてもAIを使い原因や課題を特定。次の改善へのステップを圧倒的に効率化します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="Sec_Details border-t border-slate-100 bg-slate-50 py-20" data-studio-component="Sec_Details">
+      <div class="mx-auto max-w-6xl space-y-20 px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">DETAILS</p>
+          <h2 class="inline-flex items-center justify-center gap-2 text-3xl font-black text-slate-900 sm:text-4xl">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#cf0178]"></span>
+            <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
+            <span class="tracking-tight">Onboarding</span>
+            <span>ができること</span>
+          </h2>
+          <p class="mt-4 text-slate-600">専門サイトの課題を根本から解決する強力な機能</p>
+        </div>
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-md">
+            <img
+              src="assets/details/workflow.png?v=20260331-2"
+              alt="ノーコードでスピード実装"
+              class="h-full w-full object-contain object-center"
+            />
+          </div>
+          <div>
+            <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">ノーコード実装</span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">やりたい改善を、すぐに形にする。</h3>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">タグ1行いれるだけでアイデアがすぐに実現されます。</p>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">開発リソースや外注会社のスケジュールを待たずに画面上にUI改善施策を実装できます。既存システムの改修不要なためスピーディーに仮説検証を進められます。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                ノーコード実装
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                個社対応、オーダーメイドな機能開発
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                要件定義からリリース後の伴走まで支援
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md lg:order-2">
+            <img src="画像/ガイド画像.gif" alt="ユーザーの意思決定と行動を支援するガイド機能イメージ" class="h-full w-full object-contain" data-studio-component="Img_Guide_Main" />
+          </div>
+          <div class="lg:order-1">
+            <span class="inline-flex rounded-full bg-sky-500/10 px-3 py-1 text-xs font-bold text-sky-600">行動支援</span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">ユーザーの意思決定と行動を</br>強力に支援</h3>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">ユーザーの状況を理解しWebサービスの画面UIや機能と連動。</br>ユーザーの目的に対してAIが次にすべきことを視覚的に誘導し、複雑な手続きや購入完了まで迷わせずに導きます。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                対話からユーザーの意図を汲み取り、目的や機能を直接実行
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                テキスト・画像・動画をマルチに活用した、最適なビジュアル誘導
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid items-center gap-10 lg:grid-cols-2">
+          <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
+            <div class="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-white"></div>
+            <div class="absolute inset-6 flex flex-col justify-center rounded-2xl border border-slate-100 bg-white/80 p-6 backdrop-blur-sm">
+              <p class="text-sm font-bold text-violet-600">分析ダッシュボード（イメージ）</p>
+              <div class="mt-4 space-y-3">
+                <div class="flex items-end gap-2">
+                  <div class="h-12 w-6 rounded bg-violet-200"></div>
+                  <div class="h-16 w-6 rounded bg-violet-300"></div>
+                  <div class="h-20 w-6 rounded bg-violet-400"></div>
+                  <div class="h-14 w-6 rounded bg-violet-300"></div>
+                  <div class="h-24 w-6 rounded bg-[#cf0178]"></div>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="inline-flex rounded-full bg-violet-500/10 px-3 py-1 text-xs font-bold text-violet-600">学習と分析</span>
+            <h3 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">次の打ち手に繋げる</br>ユーザーニーズの可視化</h3>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">Webサイト内での行動ログと対話データを一元的に分析し顧客の関心やボトルネックを抽出。ユーザー体験の向上や、次の一手を講じるための具体的なデータ基盤となります。</p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                行動ログとAIの活用履歴を全てデータで一元管理
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-600">
+                <svg class="h-5 w-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                回答内容から傾向分析を行い示唆出し
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="Sec_UseCases border-t border-slate-100 bg-slate-50 py-16 lg:py-24" data-studio-component="Sec_UseCases">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div class="mb-10 text-center lg:mb-14">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">USE CASES</p>
+          <h2 class="inline-flex flex-wrap items-center justify-center gap-2 text-3xl font-black text-slate-900 sm:text-4xl lg:text-5xl">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#cf0178]"></span>
+            <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
+            <span class="tracking-tight">Onboarding活用事例</span>
+          </h2>
+          <h3 class="mt-4 text-base font-medium text-slate-600 sm:mt-5 sm:text-lg">Onboardigはこのような課題をお持ちのお客様に選ばれています</h3>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+              <img
+                src="assets/use-case-slide-1.jpg"
+                alt="スマートフォンでWebサービスの予約や購入を行う利用者のイメージ"
+                class="h-full w-full object-cover object-[32%_center] sm:object-[28%_center]"
+                width="1024"
+                height="636"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="flex h-full flex-col p-6 sm:p-7">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">1</span>
+              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">AI検索機能の開発</h3>
+              <p class="mt-4 text-base leading-relaxed text-slate-600">
+                ユーザーが自然言語で希望条件を入力することで、Onboarding上の生成AIが意図を汲み取り最適な求人を検索。曖昧な言葉からでも求めている検索結果を瞬時に導き出します。
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">人材業界</span>
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">生成AI連携</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=675&fit=crop&q=80"
+                alt="業務システムのダッシュボードを確認しながら導入方針を検討する担当者のイメージ"
+                class="h-full w-full object-cover"
+                width="900"
+                height="675"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="flex h-full flex-col p-6 sm:p-7">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">2</span>
+              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">ページ上にAI OCRを実装</h3>
+              <p class="mt-4 text-base leading-relaxed text-slate-600">
+                Webフォーム上の手入力が必要な箇所の誤入力を防ぐため、フォーム上にOnboarding上にボタンを設置し、AI OCRと連携。煩雑な登録手続きを大幅に効率化し申し込み率の向上に寄与。
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">インフラ業界</span>
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">OCR機能</span>
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">フォーム改善</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm md:col-span-2 lg:col-span-1">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=675&fit=crop&q=80"
+                alt="オフィスでノートPCを囲み、落ち着いて打ち合わせするビジネスチーム。ハイタッチなどの演出はなく、社内システム・情シス部門のイメージ"
+                class="h-full w-full object-cover"
+                width="900"
+                height="675"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="flex h-full flex-col p-6 sm:p-7">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">3</span>
+              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">社内システムの活用促進</h3>
+              <p class="mt-4 text-base leading-relaxed text-slate-600">
+                利用頻度が低く迷いやすい社内手続きをAIがサポート。担当者への問い合わせを削減し、業務効率を最大化します。
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">社内システム</span>
+                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">活用促進</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="outcomes" class="Sec_Outcomes border-t border-slate-100 bg-slate-50 py-20" data-studio-component="Sec_Outcomes">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">RESULTS</p>
+          <h2 class="inline-flex items-center justify-center gap-2 text-3xl font-black text-slate-900 sm:text-4xl">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#cf0178]"></span>
+            <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
+            <span class="tracking-tight">Onboarding</span>
+            <span>の導入成果</span>
+          </h2>
+          <p class="mt-4 text-lg text-slate-600">導入前後の変化を、業務スピード・活用率・問合せ負荷の3視点で可視化</p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-center text-2xl font-black text-slate-900">開発/PoCにかかる時間</h3>
+            <div class="relative mt-8 h-56">
+              <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
+              <div class="absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
+              <div class="absolute bottom-0 right-8 h-14 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">最大70%短縮</div>
+              <svg class="absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
+                <path d="M32 10v34" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <path d="M18 34l14 14 14-14" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-bold">
+              <span class="rounded-md bg-slate-100 px-2 py-1 text-slate-500">従来</span>
+              <span class="rounded-md bg-[#cf0178]/10 px-2 py-1 text-[#cf0178]">Onboarding導入後</span>
+            </div>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-center text-2xl font-black text-slate-900">活用率・CVR</h3>
+            <div class="relative mt-8 h-56">
+              <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
+              <div class="absolute bottom-0 left-8 h-36 w-20 rounded-t bg-slate-300"></div>
+              <div class="absolute bottom-0 right-8 h-44 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">+20%</div>
+              <svg class="absolute left-1/2 top-16 h-16 w-24 -translate-x-1/2 text-slate-600" viewBox="0 0 96 64" fill="none">
+                <path d="M6 52L34 34L50 42L84 12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M72 12H84V24" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-bold">
+              <span class="rounded-md bg-slate-100 px-2 py-1 text-slate-500">導入前</span>
+              <span class="rounded-md bg-[#cf0178]/10 px-2 py-1 text-[#cf0178]">Onboarding導入後</span>
+            </div>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-center text-2xl font-black text-slate-900">問合せ削減</h3>
+            <div class="relative mt-8 h-56">
+              <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
+              <div class="absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
+              <div class="absolute bottom-0 right-8 h-32 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">30%削減</div>
+              <svg class="absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
+                <path d="M32 10v34" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+                <path d="M18 34l14 14 14-14" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div class="mt-5 grid grid-cols-2 gap-3 text-center text-xs font-bold">
+              <span class="rounded-md bg-slate-100 px-2 py-1 text-slate-500">導入前</span>
+              <span class="rounded-md bg-[#cf0178]/10 px-2 py-1 text-[#cf0178]">Onboarding導入後</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="Sec_Features py-20" data-studio-component="Sec_Features">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">FEATURES</p>
+          <h2 class="inline-flex items-center justify-center gap-2 text-3xl font-black text-slate-900 sm:text-4xl">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#cf0178]"></span>
+            <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
+            <span class="tracking-tight">Onboarding</span>
+            <span>の主な機能</span>
+          </h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">AIエージェント機能</h3>
+            <p class="mt-2 text-sm text-slate-600">AIがユーザーの文脈を踏まえた回答を行い、検討から意思決定までを対話で支援</p>
+          </div>
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">チュートリアル機能</h3>
+            <p class="mt-2 text-sm text-slate-600">画面上の導線にあわせて手順を案内し、迷いやすい操作や入力をリアルタイムでサポート</p>
+          </div>
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">アンケート/NPS</h3>
+            <p class="mt-2 text-sm text-slate-600">利用体験の満足度や推奨度を最適なタイミングで取得し、改善につながる顧客の声を収集</p>
+          </div>
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">ターゲティング</h3>
+            <p class="mt-2 text-sm text-slate-600">ユーザー属性や閲覧ページに応じて、チャットやガイド表示を最適な条件で出し分け</p>
+          </div>
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">回答レポート＆分析</h3>
+            <p class="mt-2 text-sm text-slate-600">ユーザーとAIのやり取りを蓄積・可視化し、課題傾向の把握と回答品質の改善に活用可能</p>
+          </div>
+          <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
+              <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            </div>
+            <h3 class="text-center font-bold text-slate-900">サイト内イベント計測</h3>
+            <p class="mt-2 text-sm text-slate-600">クリック・スクロール・遷移などの行動を計測し、施策ごとの効果検証と改善に活かせます</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="Sec_CTA border-t border-slate-100 bg-slate-50 px-4 py-20" data-studio-component="Sec_CTA">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-12 text-center">
+          <p class="mb-2 text-sm font-bold text-[#cf0178]">SUPPORT</p>
+          <h2 class="text-3xl font-black text-slate-900 sm:text-4xl">導入ご支援</h2>
+          <p class="mt-4 text-lg font-semibold text-slate-700">カスタマーサクセス支援への評価</p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-black leading-tight text-slate-900">カスタマーサクセス担当者の対応が<br /><span class="text-[#cf0178]">丁寧で信頼できる</span></h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">「こんなことできないですか？」と相談した際にも、これはこのコードがあれば実現可能とサポートしてくださったり、さらにクリックしてもらうためには？といった、機能以外の面でもご助言くださりました。また、新しく運用担当者となったメンバーにも丁寧な説明会を実施してくださいました。</p>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-black leading-tight text-slate-900">カスタマーサクセス担当の<br /><span class="text-[#cf0178]">CS観点の強さと要望の汲み取り幅が大きい</span></h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">契約翌週にはリリースしたかったため、だいぶ無茶なスケジュールでしたが、連日FB時間を確保くださり希望期日にリリースをすることができました。短納期ゆえ、いったんリリースできればと思っていたものの、事例やCS知見の提供によって、原案よりだいぶわかりやすい形でリリースに至ることができました。</p>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-black leading-tight text-slate-900">様々な要望に応え、対応いただけるのが<br /><span class="text-[#cf0178]">他サービスとの違い</span></h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">標準機能でもおおよそ満足できる機能が揃っているが、「もっとこうしたい」と言う要望に対して、CS担当の方が要望を汲み取っていただき、実装にまで繋げていただけるところが他サービスと違うと感じました。定期バージョンアップでの対応機能も、顧客要望から実現できているため、更に利用したい機能が増える期待感もあります。</p>
+          </article>
+
+          <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <h3 class="text-2xl font-black leading-tight text-slate-900">自社のカスタマーサクセスチームを<br /><span class="text-[#cf0178]">向上させていくためのパートナー</span></h3>
+            <p class="mt-4 text-sm leading-relaxed text-slate-600">Slack上でのテキストでのやり取りの他、ちょっと画面を見てほしい際はハドルを繋いでいただいたり、状況によってはエンジニアの方が同席したりと、いわゆるオンボーディング期を経た後も、柔軟にサポートいただけました。また自チームの相談などにも乗っていただけ、今ではパートナーとして信頼しています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="iframe-form" class="Sec_Form border-t border-slate-100 bg-white px-4 py-16" data-studio-component="Sec_Form">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-6 text-center">
+          <p class="text-sm font-bold text-[#cf0178]">CONTACT FORM</p>
+          <h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">お問い合わせフォーム</h2>
+        </div>
+        <div class="mt-6 text-center text-sm leading-relaxed text-slate-600 sm:text-base">
+          <p>サービスの詳細・具体的な活用事例等を無料でダウンロード可能です。</p>
+          <p>少しでもご興味をお持ちいただけましたらお気軽にご連絡ください。</p>
+        </div>
+        <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
+          <div id="hubspot-form-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="Sec_Footer bg-slate-900 py-12 text-center text-white" data-studio-component="Sec_Footer">
+      <p class="text-lg font-black">Onboarding</p>
+      <p class="mt-2 text-sm text-slate-400">プロダクトにAIエージェントを搭載</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
+        <a href="#cta" class="transition-colors duration-200 hover:text-white">利用規約</a>
+        <a href="#cta" class="transition-colors duration-200 hover:text-white">プライバシー</a>
+        <a href="#cta" class="transition-colors duration-200 hover:text-white">会社概要</a>
+      </div>
+      <p class="mt-8 text-xs text-slate-500">© <span id="y"></span> Onboarding Inc.</p>
+    </footer>
+    <script charset="utf-8" type="text/javascript" src="https://js-na2.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+      hbspt.forms.create({
+        portalId: "21165229",
+        formId: "87a463ed-cecf-4422-80f2-4ff5ee66c5a1",
+        region: "na2",
+        target: "#hubspot-form-container"
+      });
+      document.getElementById('y').textContent = new Date().getFullYear()
+
+      ;(function initUseCasesSlider() {
+        var track = document.getElementById('use-cases-track')
+        var prev = document.getElementById('use-cases-prev')
+        var next = document.getElementById('use-cases-next')
+        var slider = document.getElementById('use-cases-slider')
+        var dotsWrap = document.getElementById('use-cases-dots')
+        if (!track || !prev || !next || !dotsWrap || !slider) return
+
+        var slides = track.querySelectorAll('[data-use-slide]')
+        var n = slides.length
+        if (n === 0) return
+
+        var i = 0
+        var dots = dotsWrap.querySelectorAll('[data-use-dot]')
+
+        function pct() {
+          return (100 / n) * i
+        }
+
+        function update() {
+          track.style.transform = 'translateX(-' + pct() + '%)'
+          dots.forEach(function (dot, d) {
+            var on = d === i
+            dot.style.backgroundColor = on ? '#cf0178' : '#cbd5e1'
+            dot.style.width = on ? '2rem' : '0.75rem'
+            dot.style.height = '0.75rem'
+            dot.style.borderRadius = '9999px'
+            dot.setAttribute('aria-current', on ? 'true' : 'false')
+          })
+        }
+
+        prev.addEventListener('click', function () {
+          i = (i - 1 + n) % n
+          update()
+        })
+        next.addEventListener('click', function () {
+          i = (i + 1) % n
+          update()
+        })
+
+        dots.forEach(function (dot) {
+          dot.addEventListener('click', function () {
+            var idx = parseInt(dot.getAttribute('data-use-dot'), 10)
+            if (!isNaN(idx)) {
+              i = idx
+              update()
+            }
+          })
+        })
+
+        slider.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault()
+            i = (i - 1 + n) % n
+            update()
+          }
+          if (e.key === 'ArrowRight') {
+            e.preventDefault()
+            i = (i + 1) % n
+            update()
+          }
+        })
+
+        update()
+      })()
+    </script>
+    <script>
+      ;(function () {
+        var toggle = document.getElementById('nav-toggle')
+        var menu = document.getElementById('nav-menu')
+        var iconMenu = document.getElementById('nav-icon-menu')
+        var iconClose = document.getElementById('nav-icon-close')
+        if (!toggle || !menu || !iconMenu || !iconClose) return
+
+        function setOpen(open) {
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+          toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く')
+          if (open) {
+            menu.classList.remove('hidden')
+            menu.classList.add('flex')
+            iconMenu.classList.add('hidden')
+            iconClose.classList.remove('hidden')
+          } else {
+            menu.classList.add('hidden')
+            menu.classList.remove('flex')
+            iconMenu.classList.remove('hidden')
+            iconClose.classList.add('hidden')
+          }
+        }
+
+        toggle.addEventListener('click', function () {
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true')
+        })
+
+        menu.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener('click', function () {
+            setOpen(false)
+          })
+        })
+
+        window.addEventListener('resize', function () {
+          if (window.matchMedia('(min-width: 768px)').matches) setOpen(false)
+        })
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') setOpen(false)
+        })
+      })()
+    </script>
+  </body>
+</html>
