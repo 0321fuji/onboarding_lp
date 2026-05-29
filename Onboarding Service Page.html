@@ -198,17 +198,35 @@
           font-size: 1.15rem;
           line-height: 1.4;
         }
-        #outcomes .h-56 {
-          height: 11.5rem;
+      }
+      @media (max-width: 520px) {
+        #outcomes .outcome-chart {
+          height: 10.75rem;
+          margin-top: 1.25rem;
         }
-        #outcomes .w-20 {
-          width: 3.25rem;
+        #outcomes .outcome-bar {
+          width: 2.85rem;
         }
-        #outcomes .left-8 {
-          left: 0.75rem;
+        #outcomes .outcome-bar-before {
+          left: 0.5rem;
         }
-        #outcomes .right-8 {
-          right: 0.75rem;
+        #outcomes .outcome-bar-after {
+          right: 0.5rem;
+        }
+        #outcomes .outcome-badge {
+          top: 0.125rem;
+          padding: 0.3rem 0.55rem;
+          font-size: 0.65rem;
+          line-height: 1.1;
+          white-space: nowrap;
+        }
+        #outcomes .outcome-icon {
+          top: 2.35rem;
+          height: 2.75rem;
+          width: 2.75rem;
+        }
+        #outcomes .outcome-icon-wide {
+          width: 3.5rem;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -537,84 +555,89 @@
             <span class="h-2.5 w-8 rounded-full bg-[#cf0178]/40"></span>
             <span class="tracking-tight">Onboarding活用事例</span>
           </h2>
-          <h3 class="mt-4 text-base font-medium text-slate-600 sm:mt-5 sm:text-lg">Onboardigはこのような課題をお持ちのお客様に選ばれています</h3>
+          <h3 class="mt-4 text-base font-medium text-slate-600 sm:mt-5 sm:text-lg">Onboardingはこのような課題をお持ちのお客様に選ばれています</h3>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-200">
               <img
-                src="assets/use-case-slide-1.jpg"
-                alt="スマートフォンでWebサービスの予約や購入を行う利用者のイメージ"
-                class="h-full w-full object-cover object-[32%_center] sm:object-[28%_center]"
-                width="1024"
-                height="636"
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=760&fit=crop&q=80"
+                alt="東京電力エナジーパートナー株式会社の導入事例イメージ"
+                class="h-full w-full object-cover"
+                width="1200"
+                height="760"
                 loading="eager"
                 decoding="async"
                 fetchpriority="high"
               />
             </div>
             <div class="flex h-full flex-col p-6 sm:p-7">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">1</span>
-              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">AI検索機能の開発</h3>
-              <p class="mt-4 text-base leading-relaxed text-slate-600">
-                ユーザーが自然言語で希望条件を入力することで、Onboarding上の生成AIが意図を汲み取り最適な求人を検索。曖昧な言葉からでも求めている検索結果を瞬時に導き出します。
+              <h3 class="text-lg font-black leading-[1.25] text-center text-slate-900 sm:text-xl lg:text-xl xl:text-xl" style="text-wrap: balance;">サイト改善を高速で実現し、コンバージョンレート向上</h3>
+              <p class="mt-6 text-sm font-medium leading-snug text-slate-700 sm:mt-8">東京電力エナジーパートナー株式会社 様</p>
+              <p class="mt-7 text-sm leading-relaxed text-slate-600">
+                Webフォーム上の手入力が必要な箇所の誤入力を防ぐため、Onboardingを活用しAI-OCRと連携。ユーザーの煩雑な登録手続きを大幅に効率化し、申し込み率の向上に貢献。
               </p>
-              <div class="mt-5 flex flex-wrap gap-2">
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">人材業界</span>
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">生成AI連携</span>
-              </div>
+              <p class="mt-8 text-sm font-bold tracking-wide text-slate-700">具体的にやっていること</p>
+              <ul class="mt-3 space-y-2 text-base text-slate-700">
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>ノーコード実装</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>個社対応、オーダーメイドな機能開発</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>AI-OCR連携による入力支援</span></li>
+              </ul>
             </div>
           </article>
 
-          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-200">
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=675&fit=crop&q=80"
-                alt="業務システムのダッシュボードを確認しながら導入方針を検討する担当者のイメージ"
+                src="エアトリ.png"
+                alt="株式会社エアトリの導入事例イメージ"
                 class="h-full w-full object-cover"
-                width="900"
-                height="675"
+                width="451"
+                height="299"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="flex h-full flex-col p-6 sm:p-7">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">2</span>
-              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">ページ上にAI OCRを実装</h3>
-              <p class="mt-4 text-base leading-relaxed text-slate-600">
-                Webフォーム上の手入力が必要な箇所の誤入力を防ぐため、フォーム上にOnboarding上にボタンを設置し、AI OCRと連携。煩雑な登録手続きを大幅に効率化し申し込み率の向上に寄与。
+              <h3 class="text-lg font-black leading-[1.25] text-center text-slate-900 sm:text-xl lg:text-xl xl:text-xl" style="text-wrap: balance;">実験的グロース施策で活用し、ROI約3倍・施策公開スピード約4倍</h3>
+              <p class="mt-6 text-sm font-medium leading-snug text-slate-700 sm:mt-8">株式会社エアトリ 様</p>
+              <p class="mt-7 text-sm leading-relaxed text-slate-600">
+                CVR改善施策や生成AIの取り組みなど、社内開発では優先度が上がりづらい実験的なグロース施策を素早く実行。施策公開スピード約4倍・ROI約3倍の成果創出に貢献。
               </p>
-              <div class="mt-5 flex flex-wrap gap-2">
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">インフラ業界</span>
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">OCR機能</span>
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">フォーム改善</span>
-              </div>
+              <p class="mt-8 text-sm font-bold tracking-wide text-slate-700">具体的にやっていること</p>
+              <ul class="mt-3 space-y-2 text-base text-slate-700">
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>ノーコード実装</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>個社対応、オーダーメイドな機能開発</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>生成AIを用いたグロース施策運用</span></li>
+              </ul>
             </div>
           </article>
 
-          <article class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm md:col-span-2 lg:col-span-1">
-            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-100">
+          <article class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm md:col-span-2 lg:col-span-1">
+            <div class="aspect-[16/10] w-full overflow-hidden bg-slate-200">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=675&fit=crop&q=80"
-                alt="オフィスでノートPCを囲み、落ち着いて打ち合わせするビジネスチーム。ハイタッチなどの演出はなく、社内システム・情シス部門のイメージ"
+                src="顧客写真/ANA X.jpg"
+                alt="ANA X株式会社の導入事例イメージ"
                 class="h-full w-full object-cover"
-                width="900"
-                height="675"
+                width="1200"
+                height="760"
                 loading="lazy"
                 decoding="async"
               />
             </div>
             <div class="flex h-full flex-col p-6 sm:p-7">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#cf0178] text-base font-black text-white">3</span>
-              <h3 class="mt-4 text-2xl font-bold leading-tight text-slate-900">社内システムの活用促進</h3>
-              <p class="mt-4 text-base leading-relaxed text-slate-600">
-                利用頻度が低く迷いやすい社内手続きをAIがサポート。担当者への問い合わせを削減し、業務効率を最大化します。
+              <h3 class="text-lg font-black leading-[1.25] text-center text-slate-900 sm:text-xl lg:text-xl xl:text-xl" style="text-wrap: balance;">導入後の電話問合せ27%削減。お客様が“自己解決”できる体験</h3>
+              <p class="mt-6 text-sm font-medium leading-snug text-slate-700 sm:mt-8">ANA X株式会社 様</p>
+              <p class="mt-7 text-sm leading-relaxed text-slate-600">
+                「ANA国内ツアーダイナミックパッケージ」の予約画面にチュートリアルガイドを設置。ユーザーが迷わず予約を進められる体験を実現し、操作問合せ削減と顧客満足度向上に貢献。
               </p>
-              <div class="mt-5 flex flex-wrap gap-2">
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">社内システム</span>
-                <span class="inline-flex rounded-full bg-[#cf0178]/10 px-3 py-1 text-xs font-bold text-[#cf0178]">活用促進</span>
-              </div>
+              <p class="mt-8 text-sm font-bold tracking-wide text-slate-700">具体的にやっていること</p>
+              <ul class="mt-3 space-y-2 text-base text-slate-700">
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>ノーコード実装</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>個社対応、オーダーメイドな機能開発</span></li>
+                <li class="flex items-start gap-2"><span class="text-[#cf0178]">✓</span><span>チュートリアルガイドによる自己解決導線</span></li>
+              </ul>
             </div>
           </article>
         </div>
@@ -635,13 +658,13 @@
         </div>
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-center text-2xl font-black text-slate-900">開発/PoCにかかる時間</h3>
-            <div class="relative mt-8 h-56">
+            <h3 class="text-center text-xl font-black text-slate-900">開発/PoCにかかる時間</h3>
+            <div class="outcome-chart relative mt-8 h-56">
               <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
-              <div class="absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
-              <div class="absolute bottom-0 right-8 h-14 w-20 rounded-t bg-[#cf0178]"></div>
-              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">最大70%短縮</div>
-              <svg class="absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
+              <div class="outcome-bar outcome-bar-before absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
+              <div class="outcome-bar outcome-bar-after absolute bottom-0 right-8 h-14 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="outcome-badge absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">最大70%短縮</div>
+              <svg class="outcome-icon absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
                 <path d="M32 10v34" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
                 <path d="M18 34l14 14 14-14" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -653,13 +676,13 @@
           </article>
 
           <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-center text-2xl font-black text-slate-900">活用率・CVR</h3>
-            <div class="relative mt-8 h-56">
+            <h3 class="text-center text-xl font-black text-slate-900">活用率・CVR</h3>
+            <div class="outcome-chart relative mt-8 h-56">
               <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
-              <div class="absolute bottom-0 left-8 h-36 w-20 rounded-t bg-slate-300"></div>
-              <div class="absolute bottom-0 right-8 h-44 w-20 rounded-t bg-[#cf0178]"></div>
-              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">+20%</div>
-              <svg class="absolute left-1/2 top-16 h-16 w-24 -translate-x-1/2 text-slate-600" viewBox="0 0 96 64" fill="none">
+              <div class="outcome-bar outcome-bar-before absolute bottom-0 left-8 h-36 w-20 rounded-t bg-slate-300"></div>
+              <div class="outcome-bar outcome-bar-after absolute bottom-0 right-8 h-44 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="outcome-badge absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">+20%</div>
+              <svg class="outcome-icon outcome-icon-wide absolute left-1/2 top-16 h-16 w-24 -translate-x-1/2 text-slate-600" viewBox="0 0 96 64" fill="none">
                 <path d="M6 52L34 34L50 42L84 12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M72 12H84V24" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -671,13 +694,13 @@
           </article>
 
           <article class="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
-            <h3 class="text-center text-2xl font-black text-slate-900">問合せ削減</h3>
-            <div class="relative mt-8 h-56">
+            <h3 class="text-center text-xl font-black text-slate-900">問合せ削減</h3>
+            <div class="outcome-chart relative mt-8 h-56">
               <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-slate-300"></div>
-              <div class="absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
-              <div class="absolute bottom-0 right-8 h-32 w-20 rounded-t bg-[#cf0178]"></div>
-              <div class="absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">30%削減</div>
-              <svg class="absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
+              <div class="outcome-bar outcome-bar-before absolute bottom-0 left-8 h-44 w-20 rounded-t bg-slate-300"></div>
+              <div class="outcome-bar outcome-bar-after absolute bottom-0 right-8 h-32 w-20 rounded-t bg-[#cf0178]"></div>
+              <div class="outcome-badge absolute left-1/2 top-2 -translate-x-1/2 rounded-md bg-slate-700 px-3 py-1.5 text-xs font-bold text-white">30%削減</div>
+              <svg class="outcome-icon absolute left-1/2 top-16 h-16 w-16 -translate-x-1/2 text-slate-600" viewBox="0 0 64 64" fill="none">
                 <path d="M32 10v34" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
                 <path d="M18 34l14 14 14-14" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
@@ -707,42 +730,42 @@
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">AIエージェント機能</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">AIエージェント機能</h3>
             <p class="mt-2 text-sm text-slate-600">AIがユーザーの文脈を踏まえた回答を行い、検討から意思決定までを対話で支援</p>
           </div>
           <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">チュートリアル機能</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">チュートリアル機能</h3>
             <p class="mt-2 text-sm text-slate-600">画面上の導線にあわせて手順を案内し、迷いやすい操作や入力をリアルタイムでサポート</p>
           </div>
           <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">アンケート/NPS</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">アンケート/NPS</h3>
             <p class="mt-2 text-sm text-slate-600">利用体験の満足度や推奨度を最適なタイミングで取得し、改善につながる顧客の声を収集</p>
           </div>
           <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">ターゲティング</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">ターゲティング</h3>
             <p class="mt-2 text-sm text-slate-600">ユーザー属性や閲覧ページに応じて、チャットやガイド表示を最適な条件で出し分け</p>
           </div>
           <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">回答レポート＆分析</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">回答レポート＆分析</h3>
             <p class="mt-2 text-sm text-slate-600">ユーザーとAIのやり取りを蓄積・可視化し、課題傾向の把握と回答品質の改善に活用可能</p>
           </div>
           <div class="feature-card rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
             <div class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#cf0178]/10">
               <svg class="h-5 w-5 text-[#cf0178]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
             </div>
-            <h3 class="text-center font-bold text-slate-900">サイト内イベント計測</h3>
+            <h3 class="text-center text-xl font-black text-slate-900">サイト内イベント計測</h3>
             <p class="mt-2 text-sm text-slate-600">クリック・スクロール・遷移などの行動を計測し、施策ごとの効果検証と改善に活かせます</p>
           </div>
         </div>
